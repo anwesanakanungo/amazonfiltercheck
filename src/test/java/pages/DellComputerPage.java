@@ -5,12 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.util.List;
 
 public class DellComputerPage {
     private final WebDriver driver;
+    private static Logger logger = LoggerFactory.getLogger(DellComputerPage.class);
 
     @FindBy(id = "low-price")
     private WebElement lowPrice;
@@ -45,7 +48,9 @@ public class DellComputerPage {
 
     public DellComputerPage setSearchText(String LowPrice ,String HighPrice) {
         lowPrice.sendKeys(LowPrice);
+        logger.info("Enter low price");
         highPrice.sendKeys(HighPrice);
+        logger.info("Enter High price");
         return this;
     }
     public  void goToSecondSearchPage() {

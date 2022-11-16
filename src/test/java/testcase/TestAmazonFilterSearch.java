@@ -5,6 +5,8 @@ import browser.DriverManagerFactory;
 import browser.DriverType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -19,6 +21,7 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class TestAmazonFilterSearch {
+    private static Logger logger = LoggerFactory.getLogger(TestAmazonFilterSearch.class);
     DriverManager driverManager;
     WebDriver driver;
     private GoogleSearchPage googlesSearchPage ;
@@ -55,6 +58,7 @@ public class TestAmazonFilterSearch {
         List<WebElement> allProductPrice = DellComputerPage.getAllProductPrice();
         for (WebElement product : allProductPrice) {
             System.out.println(product.getText());
+            logger.info("Verifing product count");
            Integer Actaul = Integer.parseInt(product.getText());
    // int  Actaul= Integer.parseInt(String.valueOf(product.getText()));
             if (Actaul < 30000){

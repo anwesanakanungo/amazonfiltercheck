@@ -4,10 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import util.WebDriverWrapperUtil;
 
 public class AmazonHomePage {
-
+    private static Logger logger = LoggerFactory.getLogger(AmazonHomePage.class);
     private final WebDriver driver;
 
     @FindBy(id = "searchDropdownBox")
@@ -28,10 +30,12 @@ public class AmazonHomePage {
 
     public AmazonHomePage setSearchText(String textSearch) {
         WebDriverWrapperUtil.selectItemFromDropdown(amazonDropDown,"Electronics");
+        logger.info("select items from Electronics");
         amazonSearch.sendKeys(textSearch);
+        logger.info("search Dell computer");
         amazonSearch.submit();
+        logger.info("click on ENTER");
         return this;
     }
-
 
 }

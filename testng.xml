@@ -5,7 +5,6 @@
           name="/src/test/java/testcase/amazonFilterSearch.java">
         <parameter name = "Browser" value="CHROME"/>
         <classes>
-            <class name="testcase.TestAmazonFilterSearch"/>
             <class name="testcase.TestGet5StarRating"/>
         </classes>
     </test>

@@ -4,8 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GoogleSearchPage {
+    private static Logger logger = LoggerFactory.getLogger(GoogleSearchPage.class);
     private final  WebDriver driver;
 
     @FindBy(xpath = "//input[@title='Search']")
@@ -26,16 +29,20 @@ public class GoogleSearchPage {
 
     public GoogleSearchPage goToGoogle() {
         driver.get("https://www.google.com");
+        logger.info("Go To google");
         return this;
     }
     public GoogleSearchPage setSearchText(String textSearch) {
         this.searchText.sendKeys(textSearch);
+        logger.info("Search Text");
         searchText.submit();
+        logger.info("Submit");
         return this;
     }
 
     public  void goToAmazon() {
         this.amazonLink.click();
+        logger.info("Click on amazonLink");
           }
 
 }

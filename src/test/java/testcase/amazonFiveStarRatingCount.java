@@ -5,6 +5,8 @@ import browser.DriverManagerFactory;
 import browser.DriverType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -18,6 +20,7 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class amazonFiveStarRatingCount {
+    private static Logger logger = LoggerFactory.getLogger(amazonFiveStarRatingCount.class);
     DriverManager driverManager;
     WebDriver driver;
     private GoogleSearchPage googlesSearchPage ;
@@ -53,6 +56,7 @@ public class amazonFiveStarRatingCount {
         List<WebElement> allfivestarRatingFirstPage = DellComputerPage.allsStarRatingProduct;
        int numberofStarRating= allfivestarRatingFirstPage.size();
         assertThat(numberofStarRating).isGreaterThan(0).isLessThan(5);
+        logger.info("verify 5 star rating less than 5");
 
         }
     @Test
@@ -71,6 +75,7 @@ public class amazonFiveStarRatingCount {
         List<WebElement> allfivestarRatingFirstPage = DellComputerPage.allsStarRatingProduct;
         int numberofStarRating= allfivestarRatingFirstPage.size();
         assertThat(numberofStarRating).isGreaterThan(0).isEqualTo(1);
+        logger.info("verify 5 star rating less than 5 in the second page");
 
     }
     }
